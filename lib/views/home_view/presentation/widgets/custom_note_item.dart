@@ -25,11 +25,14 @@ class NoteItem extends StatelessWidget {
               maxLines: 1,
               overflow: TextOverflow.ellipsis,
             ),
-            subtitle: const Text(
-              'description of note  description of note',
-              style: TextStyle(fontSize: 16, color: Colors.black54),
-              maxLines: 4,
-              overflow: TextOverflow.ellipsis,
+            subtitle: const Padding(
+              padding: EdgeInsets.symmetric(vertical: 8.0),
+              child: Text(
+                'description of note  description of note',
+                style: TextStyle(fontSize: 16, color: Colors.black54),
+                maxLines: 4,
+                overflow: TextOverflow.ellipsis,
+              ),
             ),
             trailing: IconButton(
                 onPressed: () {},
