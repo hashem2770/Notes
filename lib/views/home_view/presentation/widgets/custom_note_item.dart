@@ -19,9 +19,9 @@ class NoteItem extends StatelessWidget {
             title: const Text(
               'Flutter Initial Note',
               style: TextStyle(
-                  fontSize: 24,
+                  fontSize: 22,
                   color: Colors.black,
-                  fontWeight: FontWeight.w400),
+                  fontWeight: FontWeight.bold),
               maxLines: 1,
               overflow: TextOverflow.ellipsis,
             ),
@@ -40,7 +40,7 @@ class NoteItem extends StatelessWidget {
                 )),
           ),
           const Padding(
-            padding: EdgeInsets.symmetric(horizontal: 20.0),
+            padding: EdgeInsets.symmetric(horizontal: 36.0),
             child:  Text(
               'March 3 , 2024',
               style: TextStyle(color: Colors.black54),

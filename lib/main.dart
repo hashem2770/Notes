@@ -12,8 +12,12 @@ class NotesApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
-      theme: ThemeData.dark(),
-      home:  const NotesView(),
+      theme: ThemeData(
+          useMaterial3: true,
+          brightness: Brightness.dark,
+          fontFamily: 'Cairo',
+          colorSchemeSeed: Colors.amber),
+      home: const NotesView(),
     );
   }
 }
