@@ -22,6 +22,9 @@ class NotesApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    // as it's a single screen app
+    // it does not really matter if I putted the BlocProvider here
+    // or in the home view
     return BlocProvider(
       create: (context) => AddNoteCubit(),
       child: MaterialApp(
