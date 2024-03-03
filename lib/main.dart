@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:note_app/core/constant/colors.dart';
 import 'package:note_app/views/home_view/presentation/view/notes_view.dart';
 
 void main() {
@@ -14,9 +15,10 @@ class NotesApp extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       theme: ThemeData(
           useMaterial3: true,
+          primaryColor: kPrimaryColor,
           brightness: Brightness.dark,
           fontFamily: 'Cairo',
-          colorSchemeSeed: Colors.amber),
+         ),
       home: const NotesView(),
     );
   }
