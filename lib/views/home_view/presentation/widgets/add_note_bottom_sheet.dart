@@ -13,6 +13,7 @@ class AddNoteBottomSheet extends StatelessWidget {
     return Padding(
       padding: const EdgeInsets.symmetric(vertical: 32.0, horizontal: 18),
       child: SingleChildScrollView(
+        // todo: if exception was thrown, swap ModalProgressHUD with SingleChildScrollView
         child: BlocConsumer<AddNoteCubit, AddNoteState>(
           builder: (context, state) {
             return ModalProgressHUD(
