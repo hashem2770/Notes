@@ -14,7 +14,7 @@ class EditNoteViewBody extends StatelessWidget {
           children: [
             CustomAppBar(title: 'Edit Note',icon: Icons.check),
             SizedBox(height: 12),
-            CustomTextField(hintText: 'Title'),
+            CustomTextField(hintText: 'Title',),
             SizedBox(height: 24),
             CustomTextField(hintText: 'Content',maxLines: 5),
           ],
