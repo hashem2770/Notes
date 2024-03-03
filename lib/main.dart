@@ -7,10 +7,13 @@ import 'package:note_app/views/home_view/presentation/view/notes_view.dart';
 import 'package:hive_flutter/hive_flutter.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
+import 'bloc_observer.dart';
+
 void main() async {
   await Hive.initFlutter();
   Hive.registerAdapter(NoteModelAdapter());
   await Hive.openBox<NoteModel>(kNoteBox);
+  Bloc.observer = SimpleBlocObserver();
   runApp(const NotesApp());
 }
 
