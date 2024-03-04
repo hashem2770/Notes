@@ -14,7 +14,7 @@ class NoteItem extends StatelessWidget {
     return InkWell(
       // did not bother to implement GoRouter Package for this project
       onTap: () => Navigator.of(context).push(MaterialPageRoute(
-        builder: (context) => const EditNoteView(),
+        builder: (context) => EditNoteView(note: noteItem,),
       )),
       child: Container(
         margin: const EdgeInsets.only(bottom: 12),

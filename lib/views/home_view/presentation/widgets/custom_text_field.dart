@@ -5,6 +5,7 @@ class CustomTextField extends StatelessWidget {
   const CustomTextField({
     super.key,
     required this.hintText,
+    this.onChanged,
     this.maxLines = 1,
     this.controller,
     this.onSaved,
@@ -17,9 +18,13 @@ class CustomTextField extends StatelessWidget {
   final String validationText;
   final void Function(String?)? onSaved;
 
+  final void Function(String)? onChanged;
+
   @override
   Widget build(BuildContext context) {
     return TextFormField(
+      style: const TextStyle(fontFamily: 'Cairo', ),
+
       controller: controller,
       validator: (value) {
         if (value == null || value.isEmpty) {
@@ -30,6 +35,8 @@ class CustomTextField extends StatelessWidget {
       onSaved: onSaved,
       maxLines: maxLines,
       cursorColor: kSecondaryColor,
+      onChanged: onChanged,
+
       decoration: InputDecoration(
         hintText: hintText,
         border: buildOutlineInputBorder(),

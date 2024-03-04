@@ -37,6 +37,7 @@ class NotesApp extends StatelessWidget {
       ],
       child: MaterialApp(
         debugShowCheckedModeBanner: false,
+
         theme: ThemeData(
           useMaterial3: true,
           primaryColor: kPrimaryColor,
