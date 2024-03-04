@@ -1,8 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:note_app/views/edit_note_view/presentation/view/edit_note_view.dart';
+import 'package:note_app/views/home_view/data/models/note_model.dart';
 
 class NoteItem extends StatelessWidget {
-  const NoteItem({super.key});
+  const NoteItem({super.key, required this.noteItem});
+  final NoteModel noteItem;
 
   @override
   Widget build(BuildContext context) {
@@ -22,26 +24,28 @@ class NoteItem extends StatelessWidget {
           crossAxisAlignment: CrossAxisAlignment.end,
           children: [
             ListTile(
-              title: const Text(
-                'Flutter Initial Note',
-                style: TextStyle(
+              title: Text(
+                noteItem.title,
+                style: const TextStyle(
                     fontSize: 22,
                     color: Colors.black,
                     fontWeight: FontWeight.bold),
                 maxLines: 1,
                 overflow: TextOverflow.ellipsis,
               ),
-              subtitle: const Padding(
-                padding: EdgeInsets.symmetric(vertical: 8.0),
+              subtitle:  Padding(
+                padding: const EdgeInsets.symmetric(vertical: 8.0),
                 child: Text(
-                  'description of note  description of note',
-                  style: TextStyle(fontSize: 16, color: Colors.black54),
+                  noteItem.content,
+                  style: const TextStyle(fontSize: 16, color: Colors.black54),
                   maxLines: 4,
                   overflow: TextOverflow.ellipsis,
                 ),
               ),
               trailing: IconButton(
-                  onPressed: () {},
+                  onPressed: () {
+
+                  },
                   icon: const Icon(
                     Icons.delete,
                     color: Colors.black,
