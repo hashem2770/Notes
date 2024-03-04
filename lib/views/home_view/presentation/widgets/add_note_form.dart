@@ -56,26 +56,10 @@ class _AddNoteFormState extends State<AddNoteForm> {
           const SizedBox(height: 48),
           BlocBuilder<AddNoteCubit, AddNoteState>(
             builder: (context, state) {
-              final DateFormat formatter = DateFormat('y-MM-dd');
-              final String formatted = formatter.format(DateTime.now());
-
               return CustomButton(
                 onTap: () {
-                  if (_formKey.currentState!.validate()) {
-                    _formKey.currentState!.save();
-                    var note = NoteModel(
-                      title: titleController.text,
-                      content: contentController.text,
-                      dateTime: formatted,
-                      color: Colors.amberAccent.value,
-                    );
-                    context.read<AddNoteCubit>().addNote(note);
-                    context.read<NotesCubit>().fetchNotes();
-                  } else {
-                    setState(() {
-                      _autoValidateMode = AutovalidateMode.always;
-                    });
-                  }
+                  checkValidation();
+                  addNote();
                 },
                 isLoading: state is AddNoteLoading ? true : false,
               );
@@ -84,5 +68,30 @@ class _AddNoteFormState extends State<AddNoteForm> {
         ],
       ),
     );
+  }
+
+  void addNote() {
+    final DateFormat formatter = DateFormat('y-MM-dd');
+    final String formatted = formatter.format(DateTime.now());
+    NoteModel note = NoteModel(
+      title: titleController.text,
+      content: contentController.text,
+      dateTime: formatted,
+      color: Colors.amberAccent.value,
+    );
+    context.read<AddNoteCubit>().addNote(note);
+    context.read<NotesCubit>().fetchNotes();
+
+  }
+
+  void checkValidation() {
+    if (_formKey.currentState!.validate()) {
+      _formKey.currentState!.save();
+      context.read<NotesCubit>().fetchNotes();
+    } else {
+      setState(() {
+        _autoValidateMode = AutovalidateMode.always;
+      });
+    }
   }
 }
