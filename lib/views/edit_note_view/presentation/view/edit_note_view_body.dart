@@ -5,6 +5,8 @@ import 'package:note_app/views/home_view/presentation/manager/notes_cubit/notes_
 import 'package:note_app/views/home_view/presentation/widgets/app_bar.dart';
 import 'package:note_app/views/home_view/presentation/widgets/custom_text_field.dart';
 
+import '../widgets/edit_note_colors_list_view.dart';
+
 class EditNoteViewBody extends StatefulWidget {
   const EditNoteViewBody({super.key, required this.note});
 
@@ -37,18 +39,21 @@ class _EditNoteViewBodyState extends State<EditNoteViewBody> {
             ),
             const SizedBox(height: 12),
             CustomTextField(
-              hintText: 'Title',
+              hintText: widget.note.title,
               onChanged: (value) {
                 title = value;
               },
             ),
             const SizedBox(height: 24),
             CustomTextField(
-                hintText: 'Content',
-                maxLines: 5,
-                onChanged: (value) {
-                  content = value;
-                }),
+              hintText: widget.note.content,
+              maxLines: 5,
+              onChanged: (value) {
+                content = value;
+              },
+            ),
+            const SizedBox(height: 24),
+             EditNoteColorsListView(note: widget.note),
           ],
         ),
       ),
