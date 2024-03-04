@@ -17,7 +17,7 @@ class NoteItem extends StatelessWidget {
         margin: const EdgeInsets.only(bottom: 12),
         padding: const EdgeInsets.only(top: 18, bottom: 18),
         decoration: BoxDecoration(
-          color: Colors.amber,
+          color: Color(noteItem.color),
           borderRadius: BorderRadius.circular(16),
         ),
         child: Column(
@@ -52,11 +52,11 @@ class NoteItem extends StatelessWidget {
                     size: 32,
                   )),
             ),
-            const Padding(
-              padding: EdgeInsets.symmetric(horizontal: 36.0),
+             Padding(
+              padding: const EdgeInsets.symmetric(horizontal: 36.0),
               child: Text(
-                'March 3 , 2024',
-                style: TextStyle(color: Colors.black54),
+                noteItem.dateTime,
+                style: const TextStyle(color: Colors.black54),
               ),
             ),
           ],
