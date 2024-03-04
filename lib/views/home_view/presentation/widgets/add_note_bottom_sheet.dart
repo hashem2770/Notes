@@ -10,9 +10,13 @@ class AddNoteBottomSheet extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return BlocListener<AddNoteCubit, AddNoteState>(
-      child: const Padding(
-        padding: EdgeInsets.symmetric(vertical: 32.0, horizontal: 18),
-        child: SingleChildScrollView(
+      child: Padding(
+        padding: EdgeInsets.only(
+            left: 18,
+            right: 18,
+            bottom: MediaQuery.of(context).viewInsets.bottom + 20,
+            top: 20),
+        child: const SingleChildScrollView(
           child: AddNoteForm(),
         ),
       ),
@@ -28,3 +32,10 @@ class AddNoteBottomSheet extends StatelessWidget {
     );
   }
 }
+/*In order to make the bottom sheet pushed up and not cover the keyboard, we added the following code:
+* 1- in scaffold : resizeToAvoidBottomInset: false,
+* 2- showModalBottomSheet : isScrollControlled: true,
+* 3- in showModalBottomSheet builder return widget after wrapping it with padding :
+*  bottom: MediaQuery.of(context).viewInsets.bottom
+*
+* */
