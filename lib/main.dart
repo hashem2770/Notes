@@ -3,6 +3,7 @@ import 'package:note_app/core/constant/colors.dart';
 import 'package:note_app/core/constant/hive_constant.dart';
 import 'package:note_app/views/home_view/data/models/note_model.dart';
 import 'package:note_app/views/home_view/presentation/manager/add_note_cubit/add_note_cubit.dart';
+import 'package:note_app/views/home_view/presentation/manager/notes_cubit/notes_cubit.dart';
 import 'package:note_app/views/home_view/presentation/view/notes_view.dart';
 import 'package:hive_flutter/hive_flutter.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -25,8 +26,15 @@ class NotesApp extends StatelessWidget {
     // as it's a single screen app
     // it does not really matter if I putted the BlocProvider here
     // or in the home view
-    return BlocProvider(
-      create: (context) => AddNoteCubit(),
+    return MultiBlocProvider(
+      providers: [
+        BlocProvider(
+          create: (context) => AddNoteCubit(),
+        ),
+        BlocProvider(
+          create: (context) => NotesCubit()..fetchNotes(),
+        )
+      ],
       child: MaterialApp(
         debugShowCheckedModeBanner: false,
         theme: ThemeData(
