@@ -30,6 +30,7 @@ class _AddNoteFormState extends State<AddNoteForm> {
       key: _formKey,
       autovalidateMode: _autoValidateMode,
       child: Column(
+        crossAxisAlignment: CrossAxisAlignment.center,
         children: [
           CustomTextField(
             controller: titleController,
