@@ -81,11 +81,12 @@ class _AddNoteFormState extends State<AddNoteForm> {
       title: titleController.text,
       content: contentController.text,
       dateTime: formatted,
-      color: context.read<AddNoteCubit>().color?.value??Colors.blue.value,
+      color: context.read<AddNoteCubit>().color.value,
     );
     context.read<AddNoteCubit>().addNote(note);
     context.read<NotesCubit>().fetchNotes();
   }
+
 
   void checkValidation() {
     if (_formKey.currentState!.validate()) {
